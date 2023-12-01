@@ -1,6 +1,8 @@
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../../../style/colors/colors.dart';
 class LoadingWidget extends StatelessWidget {
   const LoadingWidget({Key? key}) : super(key: key);
 
@@ -9,7 +11,9 @@ class LoadingWidget extends StatelessWidget {
     if(Platform.isAndroid) {
       return const Scaffold(
         body: Center(
-          child: CircularProgressIndicator(),
+          child: CircularProgressIndicator(
+            color: AppColors.kPrimaryColor,
+          ),
         ),
       );
     }

@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 
 class DioHelper {
   static late Dio dio;
@@ -59,5 +60,22 @@ class DioHelper {
     };
 
     return dio.put(url, queryParameters: query, data: data);
+  }
+
+  static Future<Response> download({
+  required String directory,
+  required String file,
+  required String extension,
+  required String url,
+  required ProgressCallback fn,
+}) async{
+    if(kDebugMode){
+      print("$directory/$file.$extension");
+    }
+    return dio.download(
+      url,
+      "$directory/$file.$extension",
+      onReceiveProgress:fn,
+    );
   }
 }

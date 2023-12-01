@@ -5,6 +5,7 @@ import 'package:media_app/shared/widgets/choice_card/choice_card.dart';
 import 'package:media_app/shared/widgets/text_field/text_field.dart';
 
 import '../../shared/cubit/app_cubit/app_cubit.dart';
+import '../favourite_screen/favourite_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -20,6 +21,27 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0.0,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        actions: [
+          IconButton(
+              onPressed: (){
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (_)=>const FavouriteScreen(),
+                    ),
+                );
+              },
+              icon: const Icon(
+                Icons.save_alt,
+                color: Colors.black,
+                size: 32,
+              ),
+          ),
+        ],
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20.0),

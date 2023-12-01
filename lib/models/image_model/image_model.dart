@@ -14,7 +14,6 @@ class ImageModel{
   late String originalUrl;
   late String mediumUrl;
   late String smallUrl;
-  late bool liked;
 
   ImageModel.fromJson(Map<String,dynamic>json){
     id = json['id'];
@@ -25,7 +24,6 @@ class ImageModel{
     photographerProfile = json['photographer_url'];
     averageColor = HexColorConverter.fromHex(json['avg_color']);
     alt = json['alt'];
-    liked = json['liked'];
     originalUrl = json['src']['original'];
     mediumUrl = json['src']['medium'];
     smallUrl = json['src']['small'];
